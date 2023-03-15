@@ -1,5 +1,7 @@
 #pragma once
 
+#define COMB_FILTER_COUNT 10
+#define ALLPASS_FILTER_COUNT 8
 
 //==============================================================================
 class AudioPlugin : public AudioProcessor {
@@ -48,30 +50,18 @@ class AudioPlugin : public AudioProcessor {
 
   private:
     //==============================================================================
-    AudioParameterFloat* comb1_delay_time;
-    AudioParameterFloat* comb1_gain;
-    AudioParameterFloat* comb2_delay_time;
-    AudioParameterFloat* comb2_gain;
-    AudioParameterFloat* comb3_delay_time;
-    AudioParameterFloat* comb3_gain;
-    AudioParameterFloat* comb4_delay_time;
-    AudioParameterFloat* comb4_gain;
+    AudioParameterFloat** comb_delay_time;
+    AudioParameterFloat** comb_gain;
 
-    AudioParameterFloat* allpass1_delay_time;
-    AudioParameterFloat* allpass1_gain;
-    AudioParameterFloat* allpass2_delay_time;
-    AudioParameterFloat* allpass2_gain;
-    AudioParameterFloat* allpass3_delay_time;
-    AudioParameterFloat* allpass3_gain;
+    AudioParameterFloat** allpass_delay_time;
+    AudioParameterFloat** allpass_gain;
 
     AudioParameterFloat* dry;
     AudioParameterFloat* wet;
 
-    size_t               comb_line_count = 4;
     float**              comb_lines;
     size_t*              comb_heads;
 
-    size_t               allpass_line_count = 3;
     float***             allpass_lines;
     size_t*              allpass_heads;
 
